@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salad", "Salad.csproj", "{41D96708-A7C8-4161-AB82-0FC7FD3392AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salad", "AsyncExamples\Salad.csproj", "{41D96708-A7C8-4161-AB82-0FC7FD3392AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaladTests", "..\XUnitTestProject1\SaladTests.csproj", "{C482FFF9-EE4A-4B3D-98BF-E8CB08BBB8B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaladTests", "AsyncExamplesTests\SaladTests.csproj", "{C482FFF9-EE4A-4B3D-98BF-E8CB08BBB8B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
