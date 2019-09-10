@@ -14,14 +14,22 @@ namespace AsyncExamplesTests
 
         private string ReadSaladFile()
         {
-            Thread.Sleep(50);
+            string salad = null;
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             while (!File.Exists("salad.txt"))
             {
                 if (stopwatch.ElapsedMilliseconds > 3000) throw new TimeoutException();
+                try
+                {
+                    salad = File.ReadAllText("salad.txt");
+                }
+                catch(IOException e)
+                {
+                    Console.WriteLine($"{e.Message}, retrying");
+                }
             }
-            return File.ReadAllText("salad.txt");
+            return salad;
         }
     }
 }

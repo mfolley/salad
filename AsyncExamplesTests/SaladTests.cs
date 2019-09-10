@@ -14,11 +14,19 @@ namespace AsyncExamplesTests
         }
 
         [Fact]
+        public void CaesarSaladShouldHaveElevenLetters()
+        {
+            Salad.Make("Caesar");
+            var salad = ReadSaladFile();
+            Assert.Equal(11, salad.Length);
+        }
+
+        [Fact]
         public void SaladShouldNotBeScrambled()
         {
             Salad.Make();            
             var salad = ReadSaladFile();
-            Assert.Equal("SALAD", salad);
+            Assert.Equal("Salad", salad);
         }
     }
 }

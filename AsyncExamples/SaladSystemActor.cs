@@ -8,19 +8,25 @@ namespace AsyncExamples
     {
         public SaladSystemActor(IActorRef saladActor)
         {
+            var saladIngredients = new List<int>();
             var replies = string.Empty;
-            var saladIngredients = new int[] { 83, 65, 76, 65, 68 };
+
             Receive<string>(message =>
             {
-                foreach(var saladIngredient in saladIngredients)
+                var typeOfSalad = message.Split(' ')[1].TrimStart();
+                foreach(var letter in typeOfSalad)
+                {
+                    saladIngredients.Add(letter);
+                }
+                foreach (var saladIngredient in saladIngredients)
                 {
                     saladActor.Tell(saladIngredient);
                 }                           
             });
-
             Receive<char>(message =>
             {
-                File.AppendAllText("salad.txt", replies);                
+                replies += message;
+                File.AppendAllText("salad.txt", replies);            
             });
         }
     }
