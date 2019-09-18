@@ -17,7 +17,7 @@ namespace AsyncExamplesTests
             string salad = null;
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            while (!File.Exists("salad.txt"))
+            while (salad is null)
             {
                 if (stopwatch.ElapsedMilliseconds > 3000) throw new TimeoutException();
                 try
@@ -26,7 +26,7 @@ namespace AsyncExamplesTests
                 }
                 catch(IOException e)
                 {
-                    Console.WriteLine($"{e.Message}, retrying");
+                    Trace.WriteLine($"{e.Message}, retrying");
                 }
             }
             return salad;
